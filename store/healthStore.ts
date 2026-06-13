@@ -159,7 +159,6 @@ export const useHealthStore = create<HealthState>()(
       partialize: (state) => ({
         threads: state.threads,
         activeThreadId: state.activeThreadId,
-        healthProfile: state.healthProfile,
       }),
     }
   )
