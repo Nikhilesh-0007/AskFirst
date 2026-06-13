@@ -1,21 +1,20 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useTaskStore } from "../store/taskStore";
-import StatsDashboard from "../components/StatsDashboard";
-import AddTaskForm from "../components/AddTaskForm";
-import FilterBar from "../components/FilterBar";
-import TaskList from "../components/TaskList";
-import UndoToast from "../components/UndoToast";
-import { Sun, Moon, Sparkles, ArrowRight } from "lucide-react";
+import { useTaskStore } from "../../store/taskStore";
+import StatsDashboard from "../../components/StatsDashboard";
+import AddTaskForm from "../../components/AddTaskForm";
+import FilterBar from "../../components/FilterBar";
+import TaskList from "../../components/TaskList";
+import UndoToast from "../../components/UndoToast";
+import { Sun, Moon, Sparkles, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default function TasksPage() {
   const tasks = useTaskStore((state) => state.tasks);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mounted, setMounted] = useState(false);
 
-  // Initialize theme and mount state
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem("theme-mode") as "light" | "dark" | null;
@@ -27,7 +26,6 @@ export default function Home() {
         document.documentElement.classList.remove("dark");
       }
     } else {
-      // Default to dark mode
       setTheme("dark");
       document.documentElement.classList.add("dark");
     }
@@ -53,14 +51,14 @@ export default function Home() {
       <div className="absolute top-10 right-1/4 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-4 pt-12 relative z-10">
-        {/* Navigation to Clary Companion */}
+        {/* Navigation back */}
         <div className="mb-4">
           <Link
-            href="/companion"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-indigo-650 dark:text-slate-400 dark:hover:text-indigo-400 transition-all"
+            href="/"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-all"
           >
-            <span>Go to Clary Companion</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back to Health Companion</span>
           </Link>
         </div>
 

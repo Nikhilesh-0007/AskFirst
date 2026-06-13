@@ -44,9 +44,9 @@ export default function AddTaskForm() {
               onChange={(e) => setPriority(e.target.value as Priority)}
               className="w-full h-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 cursor-pointer appearance-none"
             >
-              <option value="Low">Priority: Low</option>
-              <option value="Medium">Priority: Medium</option>
-              <option value="High">Priority: High</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
             </select>
             <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">
               ▼
